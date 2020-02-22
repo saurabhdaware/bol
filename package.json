@@ -1,0 +1,27 @@
+{
+  "name": "bol",
+  "version": "0.0.0",
+  "description": "Currently just a wrapper around speechSynthesis with slightly better consistency in voices, Trying to be super consistent! Text-to-speech for Web.",
+  "main": "dist/index.mjs",
+  "entry": "dist/index.mjs",
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build/build.js",
+    "start": "serve src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurabhdaware/bol.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurabhdaware/bol/issues"
+  },
+  "homepage": "https://github.com/saurabhdaware/bol#readme"
+}
