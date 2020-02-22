@@ -6,10 +6,15 @@
   <title>Example</title>
 </head>
 <body>
+  <button class="talk">Talk Shit</button>
   <script type="module">
-    import bol from './index.mjs';
+    import Bol from './index.mjs';
 
-    console.log(bol)
+    const bol = new Bol('UK English Male', {rate: .8});
+
+    document.querySelector('.talk').addEventListener('click', e => {
+      bol.speak("Whatta useless application bro");
+    })
   </script>
 </body>
 </html>
