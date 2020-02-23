@@ -28,6 +28,7 @@ function getSupportedVoice(bolVoice, systemVoices) {
 
 // Helpers end
 
+let retriesToSpeak = 0;
 class Bol {
   constructor(defaultVoice = 'UK English Female', { rate, pitch, volume } = {rate: 1, pitch: 1, volume: 1}) {
     this.systemVoices = [];
@@ -48,8 +49,9 @@ class Bol {
   }
 
   async speak(text, newVoice = null) {
-    if(this.systemVoices.length === 0) {
+    if(this.systemVoices.length === 0 && retriesToSpeak < 10) {
       await wait(600);
+      retriesToSpeak++;
       return this.speak(text, newVoice);
     }
     
@@ -62,8 +64,14 @@ class Bol {
     utterThis.pitch = this.pitch || 1;
     utterThis.text = text;
     utterThis.lang = voice.lang || 'en-US';
-    console.log(speechSynthesis);
+
     speechSynthesis.speak(utterThis);
+    
+    return new Promise(resolve => {
+      utterThis.onend = e => {
+        resolve(e.elapsedTime);
+      }
+    })
   }
 
 }

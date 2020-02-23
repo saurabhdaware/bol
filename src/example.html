@@ -13,7 +13,10 @@
     const bol = new Bol('UK English Male', {rate: .8});
 
     document.querySelector('.talk').addEventListener('click', e => {
-      bol.speak("Whatta useless application bro");
+      bol.speak("Whatta useless application bro")
+        .then(elapsedTime => {
+          console.log(elapsedTime);
+        })
     })
   </script>
 </body>
