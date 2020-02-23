@@ -14,6 +14,8 @@ Currently just a wrapper around speechSynthesis with slightly better consistency
 
 If you still want to ruin your life, here's how you can do it:
 
+---
+
 ## Installation
 ```sh
 npm install --save bol
@@ -24,6 +26,8 @@ or
 ```html
 <script src="https://unpkg.com/bol@latest/dist/bol.min.js"></script>
 ```
+
+---
 
 ## Usage
 
@@ -36,6 +40,7 @@ const bol = new Bol("UK English Female", {rate: .8, pitch: 1, volume: 1})
 bol.speak("Whhatta useless package", "UK English Male")
   .then(elapsedTime => console.log(elapsedTime))
 ```
+or
 
 ### Vanilla Script Include
 ```html
@@ -56,9 +61,9 @@ bol.speak("Whhatta useless package", "UK English Male")
 
 ```
 
-
 Make sure you wrap bol.speak around a user's touch, swipe, click handlers to make it work.
 
+---
 
 ## Voices
 - "UK English Male"
@@ -66,7 +71,10 @@ Make sure you wrap bol.speak around a user's touch, swipe, click handlers to mak
 - "US English Male"
 - "US English Female"
 
+---
 
 ## Me!
 - [GitHub/saurabhdaware](https://github.com/saurabhdaware)
 - [Twitter/saurabhcodes](https://twitter.com/saurabhcodes)
+
+🌻
