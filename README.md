@@ -24,7 +24,7 @@ npm install --save bol
 or
 
 ```html
-<script src="https://unpkg.com/bol@latest/dist/bol.min.js"></script>
+<script src="https://unpkg.com/bol@^0/dist/bol.min.js"></script>
 ```
 
 ---
@@ -46,7 +46,7 @@ or
 ```html
 <body>
   <button class="talk">Fact of the Day</button>
-  <script src="https://unpkg.com/bol@latest/dist/bol.min.js"></script>
+  <script src="https://unpkg.com/bol@^0/dist/bol.min.js"></script>
   <script>
     const bol = new Bol('UK English Male', {rate: .8});
 
