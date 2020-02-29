@@ -59,9 +59,9 @@ class Bol {
     const utterThis = new SpeechSynthesisUtterance(text);
     utterThis.voice = voice || '';
     utterThis.voiceURI = voice.voiceURI || '';
-    utterThis.volume = this.volume || 1;
-    utterThis.rate = this.rate || .8;
-    utterThis.pitch = this.pitch || 1;
+    utterThis.volume = (this.volume === undefined || this.volume === null) ? 1 : this.volume;
+    utterThis.rate = (this.rate === undefined || this.rate === null) ? .8 : this.rate;
+    utterThis.pitch = (this.pitch === undefined || this.pitch === null) ? 1 : this.pitch;
     utterThis.text = text;
     utterThis.lang = voice.lang || 'en-US';
 
