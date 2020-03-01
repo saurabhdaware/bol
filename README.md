@@ -51,7 +51,6 @@ or
     const bol = new Bol('UK English Male', {rate: .8});
 
     document.querySelector('.talk').addEventListener('click', e => {
-      bol.volume = 0;
       bol.speak("HTML is a programming language!")
         .then(elapsedTime => {
           console.log(elapsedTime);
