@@ -2,6 +2,9 @@ import { bolVoices, fallbacks } from './voices.mjs';
 
 // Helpers
 function getFallbackVoices(voiceName) {
+  // return first voice (Google UK English Female) if the voice does not exist in list
+  if(!bolVoices[voiceName]) return [fallbacks[0]];
+
   return bolVoices[voiceName].map(id => fallbacks[id]);
 }
 

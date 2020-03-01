@@ -1,6 +1,6 @@
 {
   "name": "bol",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Currently just a wrapper around speechSynthesis with slightly better consistency in voices, Trying to be super consistent! Text-to-speech for Web.",
   "main": "dist/index.mjs",
   "entry": "dist/index.mjs",
@@ -13,7 +13,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build/build.js",
-    "start": "serve src",
+    "start": "serve dist",
+    "dev": "serve src",
     "prepublish": "npm run build"
   },
   "repository": {
