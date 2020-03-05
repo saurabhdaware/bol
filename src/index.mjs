@@ -38,7 +38,13 @@ class Bol {
     this.rate = rate;
     this.pitch = pitch;
     this.volume = volume;
-    this.defaultVoice = defaultVoice;
+
+    
+    if(Object.keys(bolVoices).includes(this.defaultVoice)) {
+      this.defaultVoice = defaultVoice;
+    }else {
+      this.defaultVoice = 'UK English Female';
+    }
 
     this.init();
     this.speak = this.speak.bind(this);
