@@ -39,13 +39,12 @@ class Bol {
     this.pitch = pitch;
     this.volume = volume;
 
-    
-    if(Object.keys(bolVoices).includes(this.defaultVoice)) {
+    if(Object.keys(bolVoices).includes(defaultVoice)) {
       this.defaultVoice = defaultVoice;
     }else {
       this.defaultVoice = 'UK English Female';
     }
-
+    
     this.init();
     this.speak = this.speak.bind(this);
     this.init = this.init.bind(this);
@@ -65,6 +64,7 @@ class Bol {
     }
     
     const voice = getSupportedVoice((newVoice || this.defaultVoice), this.systemVoices);
+    console.log(this.defaultVoice);
     const utterThis = new SpeechSynthesisUtterance(text);
     utterThis.voice = voice || '';
     utterThis.voiceURI = voice.voiceURI || '';
