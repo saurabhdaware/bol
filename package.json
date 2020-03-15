@@ -1,6 +1,6 @@
 {
   "name": "bol",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Currently just a wrapper around speechSynthesis with slightly better consistency in voices, Trying to be super consistent! Text-to-speech for Web.",
   "main": "dist/index.mjs",
   "entry": "dist/index.mjs",
