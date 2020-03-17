@@ -31,13 +31,33 @@ function getSupportedVoice(bolVoice, systemVoices) {
 
 // Helpers end
 
+const emotions = {
+  "happy": {
+    rate: 1.1,
+    pitch: 1.2,
+    volume: 2
+  },
+  "sad": {
+    rate: .6,
+    pitch: .7,
+    volume: 1
+  }
+}
+
 let retriesToSpeak = 0;
 class Bol {
-  constructor(defaultVoice = 'UK English Female', { rate, pitch, volume } = {rate: 1, pitch: 1, volume: 1}) {
+  constructor(defaultVoice = 'UK English Female', { rate, pitch, volume, emotion } = {rate: 1, pitch: 1, volume: 1}) {
     this.systemVoices = [];
-    this.rate = rate;
-    this.pitch = pitch;
-    this.volume = volume;
+    
+    // if emotion is set then voice parameters according to emotion else set the once that are passed
+    if(emotion){
+      ({rate: this.rate, pitch: this.pitch, volume: this.volume} = emotions[emotion]);
+    }else {
+      this.rate = rate;
+      this.pitch = pitch;
+      this.volume = volume;
+    }
+
 
     if(Object.keys(bolVoices).includes(defaultVoice)) {
       this.defaultVoice = defaultVoice;
@@ -56,15 +76,38 @@ class Bol {
     this.systemVoices = speechSynthesis.getVoices();
   }
 
-  async speak(text, newVoice = null) {
+  /**
+   * 
+   * @param text :String (text that we have to speak out)
+   * @param options? :String or Object (If String: then it is newVoice, Else destructure to get the voiceParams)  
+   * 
+   * Example: 
+   * bol.speak("HTML is love", "UK English Male")
+   * or 
+   * bol.speak("HTML sucks", {voice: "UK English Male", rate: 2})
+   */
+  
+  async speak(text, options=null) {
+    let newVoice, emotion, rate, pitch, volume;
+
+    // options can either be String (newVoice), null or an object of options
+    if(options) {
+      if(typeof options === 'string'){
+        newVoice = options;
+      }else{
+        ({voice: newVoice, emotion, rate, pitch, volume} = options)
+      }
+    }
+
     if(this.systemVoices.length === 0 && retriesToSpeak < 10) {
       await wait(600);
       retriesToSpeak++;
-      return this.speak(text, newVoice);
+      return this.speak(text, {voice: newVoice});
     }
     
+
+    const finalVolume = volume || this.volume;
     const voice = getSupportedVoice((newVoice || this.defaultVoice), this.systemVoices);
-    console.log(this.defaultVoice);
     const utterThis = new SpeechSynthesisUtterance(text);
     utterThis.voice = voice || '';
     utterThis.voiceURI = voice.voiceURI || '';

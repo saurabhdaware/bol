@@ -10,10 +10,10 @@
   <script type="module">
     import Bol from './index.mjs';
 
-    const bol = new Bol('US English Male', {rate: .8});
+    const bol = new Bol('US English Male', {emotion: 'sad'});
 
     document.querySelector('.talk').addEventListener('click', e => {
-      bol.speak("Whatta useless application bro")
+      bol.speak("I am super happy right now", {voice: "UK English Female"})
         .then(elapsedTime => {
           console.log(elapsedTime);
         })

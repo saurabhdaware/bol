@@ -37,7 +37,7 @@ import Bol from 'bol';
 
 const bol = new Bol("UK English Female", {rate: .8, pitch: 1, volume: 1})
 
-bol.speak("Whhatta useless package", "UK English Male")
+bol.speak("Whhatta useless package", {voice: "UK English Male"})
   .then(elapsedTime => console.log(elapsedTime))
 ```
 or
