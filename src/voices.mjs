@@ -5,7 +5,7 @@ export const bolVoices = {
   "UK English Female": [0, 1, 2, 3, 4, 5, 6],
   "UK English Male": [7, 8, 9, 10, 11, 12, 13],
   "US English Female": [14, 15, 16, 17, 18, 19, 20],
-  "US English Male": [0, 1, 2, 3, 4, 5, 6]
+  "US English Male": [7, 8, 9, 10, 11, 12, 13]
 }
 
 // System Equivalent Fallbacks
