@@ -1,5 +1,7 @@
 # Bol (बोल) 🗣
 
+**THIS PROJECT IS NOT MAINTAINED ANYMORE**
+
 TTS Library for Web
 
 Currently just a wrapper around speechSynthesis with slightly better consistency in voices, Trying to be super consistent! Text-to-speech for Web.
