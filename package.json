@@ -6,7 +6,7 @@
   "entry": "dist/index.mjs",
   "dependencies": {},
   "devDependencies": {
-    "@node-minify/core": "^5.3.0",
+    "@node-minify/core": "^8.0.5",
     "@node-minify/terser": "^5.3.0",
     "fs-extra": "^8.1.0"
   },
